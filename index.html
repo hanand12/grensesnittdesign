@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<link rel="stylesheet" type="text/css" href="main.css">
+
+<head>
+
+  <meta charset="utf-8"
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="WhenIn">
+  <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+  <link rel="apple-touch-icon-precomposed" href="svg/appIcon.png"/>
+  <script src="script.js"></script>
+
+
+</head>
+
+<script language="javascript">
+  Parse.initialize("c3zC3QjRiji2WCSBlvQAehENSR7PfmGBKTmLO9Pm", "ocNg9unUlJOtCqigZSv4LfcilC4dewM3HIGN67hL");
+
+  function check(form)
+  {
+
+    Parse.User.logIn(form.username.value, form.password.value, {
+      success: function(user) {
+        console.log('success');
+        window.location = "startside.html"
+      },
+      error: function(user, error) {
+        console.log('failed');
+      }
+    });
+  }
+
+function signup(form){
+
+  var user = new Parse.User();
+  user.set("username", form.username.value);
+  user.set("password", form.password.value);
+  user.set("City", form.city.value);
+
+ 
+  user.signUp(null, {
+    success: function(user) {
+      $( "#signup" ).toggleClass( "open" );
+    },
+    error: function(user, error) { 
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+
+}
+
+</script>
+
+<script>
+
+$( document ).ready(function() {
+ console.log("documentready")
+
+  $( "#opensignup" ).click(function() {
+    console.log("click")
+    $( "#signup" ).toggleClass( "open" );
+
+  });
+  $( "#escape" ).click(function() {
+    console.log("click")
+    $( "#signup" ).toggleClass( "open" );
+
+  });
+});
+
+</script>
+
+
+
+<body>
+  
+  <div id="wrapper">
+
+          
+    <img src="svg/logo.svg" alt="Logo">
+
+    <div id="login">
+              
+      <form class="login-form">
+        <div class="error" style="display:none"></div>
+        <div class="inputfield"><span class="input-icon fontawesome-user"><img src="svg/user.svg" class="user" alt="user"></span><input type="text" class="iconfield" name="username" placeholder="Username" required></div>
+        <div class="inputfield"><span class="input-icon fontawesome-lock"><img src="svg/key.svg" class="key" alt="key"></span><input type="password"  class="iconfield" name="password" placeholder="Password" required></div>
+        <div class="inputfield"><input type="button" onclick="check(this.form)" value="Sign In"></div>
+      </form>
+                 
+      <p>Not a member? <a href="#" id="opensignup">Sign up now</a></p> 
+        
+      </div> 
+
+    
+  </div>
+
+  <div id="signup">
+
+    <h2>Registration</h2>
+    <form class="signup-form">          
+      <div class="inputfield"><input type="text" name="username" placeholder="Username" required></div>
+      <div class="inputfield"><input type="password"  name="password" placeholder="Password" required></div>
+      <div class="inputfield"><input type="text"  name="city" placeholder="Your home town" required></div>
+      <div class="inputfield"><input type="button" onclick="signup(this.form)" value="Sign Up"></div>
+    </form>    
+
+    <p><a href="#" id="escape">Escape</a></p> 
+        
+  </div> 
+
+</body>
+
+</html>

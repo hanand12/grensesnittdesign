@@ -1,0 +1,69 @@
+@import "normalize.css";
+@import "login.css";
+@import "startside.css";
+@import "question.css";
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #DDDDDD;
+}
+#header{
+  width: 100%;
+  height: 10%;
+  margin: auto;
+  position: relative;
+  background-color: #8C0327;
+  z-index: 10;
+}
+
+#wrapper{
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+
+#main-nav {
+	margin-left: -205px;
+  width: 200px;
+  height: 100%;
+  float: left;
+  position: fixed;
+  top: 46px;
+  left: 0;
+  -webkit-transition : 0.5s; 
+  -moz-transition : 0.5s;
+  background: #FFFFFF;
+}
+
+
+#main-nav a {
+  display: block;
+  padding: 20px 0;
+  color: #8C0327;
+  text-align: center;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px solid #EFEFEF;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+}
+
+
+#main-nav.open {
+  margin-left:  -10px;
+  z-index: 5;
+  -webkit-transition : 0.5s;
+  -moz-transition : 0.5s;
+}

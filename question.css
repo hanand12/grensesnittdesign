@@ -1,0 +1,51 @@
+#question{
+	 width: 100%;
+  height: 100%;
+/*  position: fixed;*/
+  padding: 0px 15px 20px 15px;
+}
+
+.messagefield textarea{
+  width: 100%;
+  height: 150px;
+  background-color: #EFEFEF;
+  position: relative;
+  margin-bottom: 15px;
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+  border-radius: 0px 3px 3px 0px;
+  color: #606468;
+  padding: 16px;
+  resize:none;
+  -webkit-appearance: none;  
+}
+
+input:focus, textarea:focus {
+    outline: none;
+
+}
+h3{
+	border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #8C0327;
+  line-height: 1.5em;
+  -webkit-appearance: none;
+}
+.title{
+	color: #8C0327;
+	font-size: 16px;
+
+}
+.message{
+	color: rgb(83, 83, 83);
+	font-size: 15px;
+}
+.username{
+	color: rgb(83, 83, 83);
+	font-size: 12px;
+}
+.question-div{
+	border-bottom: 1px dashed #8C0327;
+}

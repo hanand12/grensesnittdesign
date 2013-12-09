@@ -1,0 +1,135 @@
+img{
+  width: 60%;
+  margin: auto;
+  padding-top: 20%;
+  display: block;
+  position: relative;
+}
+
+#login{
+  width: 100%;
+  margin: auto;
+  padding-top: 10%;
+  position: relative;
+  text-align: center;
+}
+
+.inputfield{
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+input {
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+  -webkit-appearance: none;
+}
+
+#login .input-icon {
+  background-color: #E9E9E9;
+  border-radius: 3px 0px 0px 3px;
+  color: #606468;
+  display: block;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+  position: absolute;
+}
+
+input {
+  height: 50px;
+}
+
+input[type="text"], input[type="password"] {
+  background-color: #EFEFEF;
+  border-radius: 0px 3px 3px 0px;
+  color: #606468;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.inputfield .iconfield{
+  padding-left: 60px;
+}
+
+input[type="button"] {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #8C0327;
+  color: #eee;
+  font-weight: bold;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+#login input[type="button"]:hover {
+  background-color: #590212;
+}
+
+img.key{
+  width: 27px;
+  margin: auto;
+  top: 7px;
+  display: block;
+  position: relative;
+}
+
+img.user{
+  width: 17px;
+  margin: auto;
+  bottom: 2px;
+  display: block;
+  position: relative;
+}
+
+#login p, #signup p{
+  width: 280px;
+  margin: auto;
+  position: relative;
+  color: #656565;
+  font-size: 13px;
+  text-align: center;
+}
+
+a {
+  font-size: 13px;
+  color: #656565;
+  text-decoration: none;
+}
+
+#signup{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 20px 15px 20px 15px;
+  bottom: -600px;
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: all 350ms ease;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+
+}
+#signup.open{
+  bottom: 0px;
+ 
+
+}
+#signup input{
+  width: 100%;
+}
+
+h2{
+ border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #8C0327;
+  line-height: 1.5em;
+  -webkit-appearance: none;
+
+}

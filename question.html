@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+<meta charset="utf-8"
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="WhenIn">
+  <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>
+  <link rel="apple-touch-icon-precomposed" href="svg/appIcon.png"/>
+  <script src="script.js"></script>
+
+</head>
+
+<script type="text/javascript">
+
+ Parse.initialize("c3zC3QjRiji2WCSBlvQAehENSR7PfmGBKTmLO9Pm", "ocNg9unUlJOtCqigZSv4LfcilC4dewM3HIGN67hL");
+
+ function add(form){
+var user = Parse.User.current();
+ 
+// Make a new post
+var question = Parse.Object.extend("Question");
+var question = new question();
+question.set("title", form.title.value);
+question.set("message", form.message.value);
+question.set("user", user);
+question.save(null, {
+  success: function(question) {
+    window.location = "question.html";
+  }
+});
+
+}
+
+
+var Question = Parse.Object.extend("Question");
+var query = new Parse.Query(Question);
+
+// Retrieve the most recent ones
+query.descending("createdAt");
+ 
+// Only retrieve the last ten
+query.limit(10);
+ 
+// Include the user data with each question
+query.include("user");
+
+query.find({
+  success: function(entries) {
+    console.log(entries)
+
+    for (var i = 0; i < entries.length; i++) { 
+      var object = entries[i];
+ 
+      var title = object.attributes.title;
+      var message = object.attributes.message;
+      var user = object.attributes.user.attributes.username;
+
+      var entry = $('<div>').addClass('question-div').appendTo("#all_questions");
+      entry.html('<h4 class="title">' + title + '</h4><p class="message">' + message + '</p><p class="username">' + user + '</p>');
+
+      
+    }
+  }
+});
+ 
+</script>
+<body>
+
+<div id="header">
+
+
+  <div id="menu">
+    <img src="svg/menu.svg" class="menu" alt="MenuButton">
+  </div>
+
+  <div id="AskQuestionHeader">
+    <a href="question.html"><img src="svg/AskQuestionHeader.svg" class="AskQuestionHeader" alt="AskQuestion" ></a>
+  </div>
+
+  <div id="logo2">
+    <img src="svg/logo2.svg" class="logo2" alt="LogoHvit">
+  </div>
+  
+</div>
+
+<nav id="main-nav">
+    <a href="startside.html">Home</a>
+    <a href="question.html">Ask a question</a>
+    <a href="index.html">Log out</a>
+</nav>
+
+  <div id="question">
+  	<h3>Ask locals a question</h3>
+	<form class="question-form">          
+      <div class="inputfield"><input type="text" name="title" placeholder="Title" required></div>
+      <div class="messagefield"><textarea placeholder="Ask for something new to explore" name="message" rows="4" cols="50"></textarea></div>
+      <div class="inputfield"><input type="button" onclick="add(this.form)" value="Post"></div>
+    </form>
+
+    <div id="all_questions"></div>
+</div>
+
+
+
+</body>
+</html>
